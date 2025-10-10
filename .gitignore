@@ -73,5 +73,12 @@ docs/_build/
 # Ignore build artifacts created by editable installs
 *.egg-link
 
+# Ruff
+.ruff_cache/
+
 # Keep track of any project-specific ignores below
 # e.g. experiments/data/, notebooks/data/, etc.
+
+
+# Pytest coverage test report dir
+htmlcov
