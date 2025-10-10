@@ -1,0 +1,77 @@
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python cache and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+.eggs/
+*.egg-link
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# mypy / cache
+.mypy_cache/
+.pyre/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Static analysis / tooling
+.cache/
+.mercurial/
+
+# Logs
+*.log
+
+# Misc
+*.sqlite3
+*.db
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Node modules (if any experiments use node tooling)
+node_modules/
+
+# Generated docs
+docs/_build/
+
+# Ignore build artifacts created by editable installs
+*.egg-link
+
+# Keep track of any project-specific ignores below
+# e.g. experiments/data/, notebooks/data/, etc.
