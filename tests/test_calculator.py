@@ -1,7 +1,7 @@
 import pytest
 
-from example_lib import default_calculator, Operation
-from example_lib.exceptions import OperationError
+from python_project_template import default_calculator, Operation
+from python_project_template.exceptions import OperationError
 
 
 def test_default_calculator_apply_compose_chain():

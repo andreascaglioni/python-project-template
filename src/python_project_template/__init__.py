@@ -1,4 +1,4 @@
-"""example_lib: mini math utility library
+"""python-project-template: mini math utility library
 
 Exports:
 - Operation, Operation registry, Calculator, convenience operations

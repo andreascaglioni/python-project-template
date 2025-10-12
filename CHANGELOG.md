@@ -4,7 +4,7 @@ All notable changes to this project are recorded here.
 ## [Unreleased]
 
 ### Added
-- Mini calculator library (`example_lib`) with:
+- python project template (`python-project-template`) with:
 	- `Operation`, `OperationRegistry`, and `Calculator` classes
 	- example operations: `add`, `sub`, `mul`, `div`, `neg`, `sqr`
 - Minimal test suite (pytest) with unit and edge tests
