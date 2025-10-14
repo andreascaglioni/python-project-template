@@ -41,9 +41,14 @@ dev = [
 ]
 
 docs = [
-  "sphinx>=7.0",
-  "pydata-sphinx-theme",
-  "sphinx-autodoc-typehints",
+  "sphinx.ext.autodoc",
+  "sphinx.ext.napoleon",
+  "sphinx.ext.viewcode",
+  "sphinx.ext.autosummary",
+  "sphinx_autodoc_typehints",
+  'sphinx-mdinclude',
+  "sphinx_rtd_theme",
+  "sphinx-copybutton"
 ]
 
 

@@ -1,0 +1,17 @@
+# This file exists for tools (or CI) that expect a requirements.txt for docs.
+#
+# Preferred: install the docs extras defined in `pyproject.toml` so you only
+# have one source of truth for development and documentation dependencies:
+#
+#   pip install -e ".[docs]"
+#
+# Or include docs in your editable dev install:
+#
+#   pip install -e ".[dev,docs]"
+#
+# If you still need a plain requirements file (for ReadTheDocs or similar),
+# keep the minimal fallback below or generate a pinned list from pyproject.
+
+sphinx>=7.0
+pydata-sphinx-theme
+sphinx-autodoc-typehints
