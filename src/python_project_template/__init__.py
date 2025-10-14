@@ -32,6 +32,6 @@ for op in (ADD, SUB, MUL, DIV, NEG, SQR):
     _default_registry.register(op)
 
 
-# Convenience constructor using default registry
+# Convenience Calculator constructor using default registry
 def default_calculator() -> Calculator:
     return Calculator(registry=_default_registry)

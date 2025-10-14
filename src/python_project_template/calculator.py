@@ -11,18 +11,22 @@ class Calculator:
     """A tiny calculator that uses an OperationRegistry.
 
     Features:
+
     - register operations (via registry or helper)
     - apply a named operation to arguments
     - compose a sequence of operations into a single callable
     """
 
     def __init__(self, registry: Optional[OperationRegistry] = None):
-        self.registry = registry or OperationRegistry()
+        if registry is None:
+            self.registry = OperationRegistry()
+        else:
+            self.registry = registry
 
     def register(self, op: Operation, *, replace: bool = False) -> None:
         self.registry.register(op, replace=replace)
 
-    def apply(self, op_name: str, *args) -> Any:
+    def apply(self, op_name: str, *args: Any) -> Any:
         op = self.registry.get(op_name)
         try:
             return op(*args)
@@ -76,7 +80,7 @@ class Calculator:
         For binary operations, the operation consumes (current_value, next_input)
         and returns a new current_value. To support binary ops in a chain, the
         sequence should alternate between operation names and provided literals
-        (which are interpreted as inputs). Example:
+        (which are interpreted as inputs). Example::
 
             sequence = ['add', 5, 'sqr']
             chain(sequence, initial=2) -> sqr(add(2,5)) = (2+5)^2

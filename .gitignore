@@ -69,6 +69,7 @@ node_modules/
 
 # Generated docs
 docs/_build/
+docs/_autosummary/
 
 # Ignore build artifacts created by editable installs
 *.egg-link

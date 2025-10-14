@@ -4,28 +4,42 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 # python-project-template — showcasing good software practices
-A minimal Python project demonstrating best practices for testing, documentation, CI/CD, packaging, examples.
-The library provides a tiny Calculator API that can register and compose simple mathematical operations.
+The library provides a small dependence-free Calculator API (Operation, OperationRegistry, Calculator) that can register and compose simple mathematical operations.
+This simple code is used to showcase some good coding practices.
 
 ## Table of contents
 - [Features](#features)
 - [Installation](#installation)
 - [Quick usage](#quick-usage)
 - [Examples & experiments](#examples--experiments)
+- [Documentation](#documentation)
 - [Running tests](#running-tests)
 - [Project structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Features
-- Small, dependency-free core API: Operation, OperationRegistry, Calculator
-- Example operations (add, sub, mul, div, neg, sqr)
-- Utilities and clear error handling
-- Tests (pytest) and CI workflow included
+
+- **Argument validation** with type annotations and runtime checking using the ``typing`` module.
+- **Consistent error messages** for invalid operations and inputs via custom ``Exceptions``.
+- **Unit tests** with ``pytest``. Global testing variables set in :file:`tests/convtest.py`.
+- **Example notebooks and scripts** for demonstration and exploration.
+- **Google-style documentation** generated with ``sphinx``.
+- **Pre-commit routine** configured in :file:`.pre-commit-config.yaml`:
+
+  - Code formatting with ``black``
+  - Linting with ``ruff-pre-commit``
+  - Type checking with ``mypy``
+  - Additional checks and fixes (trailing whitespace removal, enforcing empty line at EOF, YAML syntax checks, blocking large files) via ``pre-commit-hooks``
+
+- **Modern packaging** and easy installation using ``pyproject.toml``.
+- **Automated test suite and coverage reporting** integrated with GitHub Actions; coverage reports can be published to GitHub Pages. Setup in :file:`.github/workflows/tests.yml`.
+- **Automatic documentation deployment** to GitHub Pages with GitHub Actions. Setup in :file:`.github/workflows/docs.yml` [TODO].
+- **Easy contribution workflow** for new features and improvements.
 
 ## Installation
 
-Clone the repository and create a virtual environment (recommended):
+Clone the repository, create a virtual environment (recommended), and install dependencies and an editable installation of `python-project-template`:
 
 ```bash
 git clone <repo-url>
@@ -36,12 +50,11 @@ python -m pip install --upgrade pip setuptools wheel
 pip install -e ".[dev]"
 ```
 
-This installs the package in editable mode and the development extras (pytest,
-pre-commit, formatting and linting tools) so you can run tests and linters.
+This installs the package in editable mode and the development extras (pytest, pre-commit, formatting and linting tools) so you can run tests and linters.
 
 ## Quick usage
 
-Interactive example using the package API:
+The following is a quick example for the Calculator API.
 
 ```python
 from python_project_template import default_calculator, Operation
@@ -66,9 +79,12 @@ print(calc.apply('inc', 4))  # -> 5
 
 ## Examples & experiments
 
-- `experiments/` — short runnable demos. Each experiment should include a
-  `README.md` explaining inputs and expected outputs.
-- `notebooks/` — exploratory notebooks (keep final versions small).
+- `experiments/` — short runnable demos.
+- `notebooks/` — exploratory notebooks.
+
+## Documentation
+
+For detailed documentation, please visit our [GitHub Pages](https://andreascaglioni.github.io/your-repo-name/).
 
 ## Running tests
 
@@ -83,21 +99,24 @@ Open `htmlcov/index.html` to view the coverage report.
 ## Project structure
 
 ```
-src/python_project_template/        # library code
-  - calculator.py                   # Calculator API
-  - operations.py                   # Operation dataclass and example ops
-  - registry.py                     # OperationRegistry
-- exceptions.py                     # custom exceptions
-  - utils.py            # small helpers
-experiments/            # short runnable demos
-notebooks/              # interactive exploration
-tests/                  # pytest test suite
-docs/                   # docs site (mkdocs)
-pyproject.toml          # build & project config
-.github/workflows/      # CI workflows
-README.md
-LICENSE
-CITATION.cff
+src/python_project_template/      # Core library package
+  - calculator.py                 # Calculator API
+  - operations.py                 # Built-in operations
+  - registry.py                   # Operation registry
+  - exceptions.py                 # Custom error types
+  - utils.py                      # Utility functions
+experiments/                      # Example scripts
+notebooks/                        # Jupyter notebooks
+tests/                            # Test suite
+docs/                             # Documentation
+.github/
+  workflows/
+    tests.yml                     # GitHub Actions workflow for automated testing and coverage reporting
+    docs.yml                      # GitHub Actions workflow for automated documentation and deployment
+pyproject.toml                    # Build/config file
+README.md                         # Project overview
+LICENSE                           # License info
+CITATION.cff                      # Citation metadata
 ```
 
 ## Contributing
