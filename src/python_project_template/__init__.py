@@ -1,7 +1,18 @@
-"""python-project-template: mini math utility library
+"""Top-level package for python_project_template.
 
-Exports:
-- Operation, Operation registry, Calculator, convenience operations
+This package exposes the core types and a small set of convenience symbols
+for the mini calculator demo project.
+
+Module layout (concise):
+- exceptions: error classes
+- operations: Operation class and example operations
+- registry: OperationRegistry for registering operations
+- calculator: Calculator class to apply/compose operations
+- utils: tiny helper functions
+
+The exported symbols are intentionally small and stable for tests and
+examples. Use :func:`default_calculator` to quickly get a Calculator pre-
+populated with common operations.
 """
 
 from .exceptions import CalculatorError, OperationError, RegistryError
@@ -26,12 +37,18 @@ __all__ = [
     "is_number",
 ]
 
-# Provide a default registry populated with common ops
+
+# Default registry pre-populated with a few convenience operations.
 _default_registry = OperationRegistry()
 for op in (ADD, SUB, MUL, DIV, NEG, SQR):
     _default_registry.register(op)
 
 
-# Convenience Calculator constructor using default registry
 def default_calculator() -> Calculator:
+    """Create a Calculator using the package default registry.
+
+    Returns:
+        Calculator: a calculator with common operations already registered.
+    """
+
     return Calculator(registry=_default_registry)

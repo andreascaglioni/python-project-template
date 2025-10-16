@@ -1,4 +1,13 @@
-"""Calculator that can register and compose operations."""
+"""Calculator utilities for applying and composing operations.
+
+The :class:`Calculator` provides a thin layer over :class:`OperationRegistry`.
+It supports applying named operations, composing unary operations into a
+callable, and a small 'chain' helper for mixed sequences of unary/binary
+operations used by the examples and tests.
+
+Keep the behaviour minimal: methods raise :class:`OperationError` for
+operation-related failures.
+"""
 
 from typing import Callable, Iterable, List, Any, Optional
 
@@ -8,13 +17,13 @@ from .exceptions import OperationError
 
 
 class Calculator:
-    """A tiny calculator that uses an OperationRegistry.
+    """Thin calculator wrapper around an OperationRegistry.
 
-    Features:
-
-    - register operations (via registry or helper)
-    - apply a named operation to arguments
-    - compose a sequence of operations into a single callable
+    Methods:
+        register(op, replace=False): Register an Operation.
+        apply(op_name, *args): Apply a registered operation.
+        compose(ops, left_to_right=True): Compose unary operations.
+        chain(sequence, initial): Apply a mixed sequence DSL-style.
     """
 
     def __init__(self, registry: Optional[OperationRegistry] = None):
@@ -24,9 +33,22 @@ class Calculator:
             self.registry = registry
 
     def register(self, op: Operation, *, replace: bool = False) -> None:
+        """Register an :class:`Operation` with the calculator's registry.
+
+        Args:
+            op: Operation to register.
+            replace: If True, replace an existing operation with the same name.
+        """
+
         self.registry.register(op, replace=replace)
 
     def apply(self, op_name: str, *args: Any) -> Any:
+        """Apply a named operation to the provided arguments.
+
+        Raises:
+            OperationError: wraps underlying errors from the operation call.
+        """
+
         op = self.registry.get(op_name)
         try:
             return op(*args)
@@ -38,17 +60,11 @@ class Calculator:
     def compose(
         self, ops: Iterable[str], *, left_to_right: bool = True
     ) -> Callable[[Any], Any]:
-        """Compose a sequence of unary operations into a single callable.
+        """Compose a sequence of unary operations into a callable.
 
-        The composed function takes one argument and applies the operations in order.
-        Only unary operations (arity == 1) are supported for composition.
-
-        Args:
-            ops: iterable of operation names
-            left_to_right: if True, apply first op then next (f2(f1(x))).
-
-        Returns:
-            callable f(x)
+        Only supports unary operations (arity == 1). The returned function
+        accepts a single value and applies the operations in the requested
+        order.
         """
 
         op_list: List[Operation] = [self.registry.get(name) for name in ops]
@@ -77,16 +93,11 @@ class Calculator:
     def chain(self, sequence: Iterable[str], initial: Any) -> Any:
         """Apply a mixed sequence of operations to an initial value.
 
-        For binary operations, the operation consumes (current_value, next_input)
-        and returns a new current_value. To support binary ops in a chain, the
-        sequence should alternate between operation names and provided literals
-        (which are interpreted as inputs). Example::
-
-            sequence = ['add', 5, 'sqr']
-            chain(sequence, initial=2) -> sqr(add(2,5)) = (2+5)^2
-
-        This is a very small DSL useful for demos.
+        The sequence may contain operation names (str) and literal values.
+        Binary operations consume the current value and the next literal.
+        This helper is intentionally small and tailored for tests/examples.
         """
+
         seq = list(sequence)
         cur = initial
         i = 0
