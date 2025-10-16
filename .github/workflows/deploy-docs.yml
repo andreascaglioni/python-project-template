@@ -37,8 +37,9 @@ jobs:
           sphinx-build -b html -a -E -W -T . _build/html
 
       - name: Upload pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
+
           path: docs/_build/html
 
   deploy-pages:
