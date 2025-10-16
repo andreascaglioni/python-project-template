@@ -32,7 +32,7 @@ This simple code is used to showcase some good coding practices.
   - Type checking with ``mypy``
   - Additional checks and fixes (trailing whitespace removal, enforcing empty line at EOF, YAML syntax checks, blocking large files) via ``pre-commit-hooks``
 
-- **Modern packaging** and easy installation using ``pyproject.toml``.
+-- **Modern packaging** and easy installation using :file:`pyproject.toml`.
 - **Automated test suite and coverage reporting** integrated with GitHub Actions; coverage reports can be published to GitHub Pages. Setup in :file:`.github/workflows/tests.yml`.
 - **Automatic documentation deployment** to GitHub Pages with GitHub Actions. Setup in :file:`.github/workflows/docs.yml` [TODO].
 - **Easy contribution workflow** for new features and improvements.
@@ -85,6 +85,8 @@ print(calc.apply('inc', 4))  # -> 5
 ## Documentation
 
 For detailed documentation, please visit our [GitHub Pages](https://andreascaglioni.github.io/your-repo-name/).
+
+If you want to build and deploy the docs yourself via GitHub Actions, see `docs/README_DOCS_DEPLOY.md` for configuration and setup steps.
 
 ## Running tests
 

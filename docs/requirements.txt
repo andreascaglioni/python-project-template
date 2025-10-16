@@ -15,3 +15,6 @@
 sphinx>=7.0
 pydata-sphinx-theme
 sphinx-autodoc-typehints
+sphinx-mdinclude
+sphinx-copybutton
+sphinxcontrib-spelling

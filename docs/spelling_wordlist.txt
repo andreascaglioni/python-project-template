@@ -1,0 +1,16 @@
+python-project-template
+pyproject
+pydata
+pptemplate
+pyproject-template
+Sphinx
+GitHub
+gh-pages
+whitespace
+pre
+runtime
+Autosummary
+arity
+iterable
+unary
+func

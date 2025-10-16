@@ -20,6 +20,7 @@ extensions = [
     "sphinx_autodoc_typehints",
     "sphinx_mdinclude",
     "sphinx_copybutton",
+    "sphinxcontrib.spelling",
 ]
 
 autosummary_generate = True
@@ -29,6 +30,14 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 # -- Options for HTML output -------------------------------------------------
 html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
+
+# Use the docs static logo now stored in docs/_static
+html_logo = "_static/logo.svg"
+
+# Set a concise HTML title (avoid theme/appending 'Documentation')
+html_title = "python-project-template"
+# Optional short title used in smaller viewports or sidebars
+html_short_title = "py-project-template"
 
 # Autodoc settings
 autodoc_default_options = {
@@ -43,3 +52,8 @@ autodoc_typehints = "description"
 intersphinx_mapping = {
     "python": ("https://docs.python.org/3", None),
 }
+
+# Spelling check options
+spelling_lang = "en_US"
+spelling_word_list_filename = "spelling_wordlist.txt"
+spelling_show_suggestions = True

@@ -40,15 +40,14 @@ dev = [
   "mypy",
 ]
 
+# list of pip-installable package names. Install running: pip install -e ".[docs]"
 docs = [
-  "sphinx.ext.autodoc",
-  "sphinx.ext.napoleon",
-  "sphinx.ext.viewcode",
-  "sphinx.ext.autosummary",
-  "sphinx_autodoc_typehints",
-  'sphinx-mdinclude',
-  "sphinx_rtd_theme",
-  "sphinx-copybutton"
+  "sphinx>=7.0",                 # provides sphinx.ext.* (autodoc, napoleon, autosummary, viewcode, ...)
+  "pydata-sphinx-theme",         # theme used in docs/conf.py (pydata_sphinx_theme)
+  "sphinx-autodoc-typehints",    # provides extension `sphinx_autodoc_typehints`
+  "sphinx-mdinclude",            # provides extension (sphinx_mdinclude)
+  "sphinx-copybutton",           # provides extension `sphinx_copybutton`
+  "sphinxcontrib-spelling",      # spell-checking documentation
 ]
 
 
