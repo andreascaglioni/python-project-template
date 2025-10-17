@@ -18,7 +18,6 @@ This simple code is used to showcase some good coding practices.
 - [Examples & experiments](#examples--experiments)
 - [Documentation](#documentation)
 - [Running tests](#running-tests)
-- [Project structure](#project-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -85,8 +84,6 @@ calc.register(Operation('inc', inc, arity=1), replace=True)
 print(calc.apply('inc', 4))  # -> 5
 ```
 
-## Examples & experiments
-
 - `experiments/` — short runnable demos.
 - `notebooks/` — exploratory notebooks.
 
@@ -109,25 +106,6 @@ pytest -q --cov=python_project_template_AS --cov-report=term --cov-report=html
 ```
 
 Open `htmlcov/index.html` to view the coverage report.
-
-## Project structure
-
-```
-src/python_project_template_AS/   # Core library package
-  calculator.py                   # Calculator API
-  operations.py                   # Built-in operations
-  registry.py                     # Operation registry
-  exceptions.py                   # Custom error types
-  utils.py                        # Utility functions
-examples/                         # Example usage of API
-tests/                            # Test suite
-docs/                             # Documentation (Sphinx source)
-.github/workflows/                # CI workflows (tests, docs)
-pyproject.toml                    # Project configuration and packaging
-README.md                         # This file
-LICENSE                           # License text
-CITATION.cff                      # Citation metadata
-```
 
 ## Contributing
 

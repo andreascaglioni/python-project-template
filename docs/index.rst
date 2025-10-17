@@ -18,7 +18,6 @@ This code is used to showcase a number of good software practices. See the next 
    docs_github
    structure
    api
-   appendix
 
 
 Indices and tables
