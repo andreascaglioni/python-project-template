@@ -13,7 +13,7 @@ Test-driven development is a software development approach where tests are writt
 Running the tests manually
 --------------------------
 
-Run the full pytest test suite with coverage:
+Run the full PyTest test suite with coverage:
 
 .. code-block:: bash
 

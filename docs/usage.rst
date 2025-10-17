@@ -12,6 +12,7 @@ The following is a quick example for the Calculator API. It shows how to:
     from python_project_template import default_calculator, Operation
 
     calc = default_calculator()
+
     print(calc.apply('add', 2, 3))  # -> 5
 
     f = calc.compose(['neg', 'sqr'])

@@ -27,5 +27,4 @@ This project is licensed under the MIT License — see the ``LICENSE`` file.
 Questions
 ---------
 
-If you have questions or want help extending the project (docs, CI, or examples),
-open an issue or create a discussion in the repository.
+If you have questions or want help extending the project (docs, CI, or examples), open an issue or drop a message in the repository.
