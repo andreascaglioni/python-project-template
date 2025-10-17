@@ -12,9 +12,7 @@ Basic example usage for the Calculator and Operation classes. This script demons
 Each operation is tested and the results are printed to verify correct behavior.
 """
 
-from python_project_template import Calculator, Operation
-
-from python_project_template import ADD, NEG
+from python_project_template import Calculator, Operation, ADD, NEG
 
 
 # Initialize new calculator
