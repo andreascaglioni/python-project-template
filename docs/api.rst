@@ -6,33 +6,33 @@ This section documents the public API exposed by the `python-project-template` p
 .. autosummary::
    :toctree: _autosummary
 
-   python_project_template.calculator
-   python_project_template.operations
-   python_project_template.registry
-   python_project_template.exceptions
-   python_project_template.utils
+   python_project_template_AS.calculator
+   python_project_template_AS.operations
+   python_project_template_AS.registry
+   python_project_template_AS.exceptions
+   python_project_template_AS.utils
 
 
 
-.. automodule:: python_project_template.calculator
+.. automodule:: python_project_template_AS.calculator
     :members:
     :undoc-members:
     :noindex:
     :show-inheritance:
 
-.. automodule:: python_project_template.operations
+.. automodule:: python_project_template_AS.operations
     :members:
     :noindex:
     :undoc-members:
 
-.. automodule:: python_project_template.registry
+.. automodule:: python_project_template_AS.registry
     :members:
     :noindex:
 
-.. automodule:: python_project_template.exceptions
+.. automodule:: python_project_template_AS.exceptions
     :members:
     :noindex:
 
-.. automodule:: python_project_template.utils
+.. automodule:: python_project_template_AS.utils
     :members:
     :noindex:

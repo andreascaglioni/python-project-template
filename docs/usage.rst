@@ -9,7 +9,7 @@ The following is a quick example for the Calculator API. It shows how to:
 
 .. code-block:: python
 
-    from python_project_template import default_calculator, Operation
+    from python_project_template_AS import default_calculator, Operation
 
     calc = default_calculator()
 

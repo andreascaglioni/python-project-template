@@ -4,7 +4,7 @@ Project Structure
 The project has the following directory structure:
 ::
 
-   src/python_project_template/      # Core library package
+   src/python_project_template_AS/   # Core library package
      calculator.py                   # Calculator API
      operations.py                   # Built-in operations
      registry.py                     # Operation registry

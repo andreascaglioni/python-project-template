@@ -1,7 +1,7 @@
 [![CI](https://github.com/andreascaglioni/python-project-template/actions/workflows/tests.yml/badge.svg)](https://github.com/andreascaglioni/python-project-template/actions/workflows/tests.yml)
 [![Docs](https://github.com/andreascaglioni/python-project-template/actions/workflows/docs.yml/badge.svg)](https://github.com/andreascaglioni/python-project-template/actions/workflows/docs.yml)
-[![codecov](https://codecov.io/gh/andreascaglioni/python-project-template/branch/main/graph/badge.svg)](https://codecov.io/gh/andreascaglioni/python-project-template)
-[![PyPI Version](https://img.shields.io/pypi/v/python-project-template.svg)](https://pypi.org/project/python-project-template/)
+[![PyPI Version](https://img.shields.io/pypi/v/python-project-template.svg)](https://pypi.org/project/python-project-template-AS/)
+[![TestPyPI Version](https://img.shields.io/badge/TestPyPI-latest-informational.svg)](https://test.pypi.org/project/python-project-template-AS/)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -43,14 +43,20 @@ This simple code is used to showcase some good coding practices.
 
 ## Installation
 
-Clone the repository, create a virtual environment (recommended), and install dependencies and an editable installation of `python-project-template`:
+To install the latest release from TestPyPI, use:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple python-project-template-AS
+```
+
+Alternatively, you can clone the repository, create a virtual environment (recommended), and install dependencies and an editable installation of `python-project-template`:
 
 ```bash
 git clone <https://github.com/andreascaglioni/python-project-template>
 cd python-project-template
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip setuptools wheel
 pip install -e ".[dev]"
 ```
 
@@ -59,7 +65,7 @@ pip install -e ".[dev]"
 The following is a quick example for the Calculator API.
 
 ```python
-from python_project_template import default_calculator, Operation
+from python_project_template_AS import default_calculator, Operation
 
 # Create a default calculator (pre-populated with common operations)
 calc = default_calculator()
@@ -88,12 +94,18 @@ print(calc.apply('inc', 4))  # -> 5
 
 For detailed documentation, please visit our [GitHub Pages](https://andreascaglioni.github.io/your-repo-name/).
 
+To build the documentation locally:
+
+1. Ensure all dependencies for documentation (e.g., Sphinx) generation are installed, for example running ``pip install -e ".[docs]"``.
+2. Run the documentation build command (for example, ``make html``).
+3. Review the generated HTML in ``docs/_build/html``.
+
 ## Running tests
 
 Run the full PyTest test suite with coverage:
 
 ```bash
-pytest -q --cov=python_project_template --cov-report=term --cov-report=html
+pytest -q --cov=python_project_template_AS --cov-report=term --cov-report=html
 ```
 
 Open `htmlcov/index.html` to view the coverage report.
@@ -101,7 +113,7 @@ Open `htmlcov/index.html` to view the coverage report.
 ## Project structure
 
 ```
-src/python_project_template/      # Core library package
+src/python_project_template_AS/   # Core library package
   calculator.py                   # Calculator API
   operations.py                   # Built-in operations
   registry.py                     # Operation registry

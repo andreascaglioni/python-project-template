@@ -1,4 +1,4 @@
-"""Top-level package for python_project_template.
+"""Top-level package for python_project_template_AS.
 
 This package exposes the core types and a small set of convenience symbols
 for the mini calculator demo project.

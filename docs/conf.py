@@ -6,7 +6,7 @@ import sys
 sys.path.insert(0, os.path.abspath("../src"))
 
 # -- Project information -----------------------------------------------------
-project = "python-project-template"
+project = "python-project-template-AS"
 author = "Andrea Scaglioni"
 # Keep in sync with pyproject.toml
 release = "0.1.0"

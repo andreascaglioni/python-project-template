@@ -17,6 +17,6 @@ Run the full PyTest test suite with coverage:
 
 .. code-block:: bash
 
-   pytest -q --cov=python_project_template --cov-report=term --cov-report=html
+   pytest -q --cov=python_project_template_AS --cov-report=term --cov-report=html
 
 Open ``htmlcov/index.html`` to view the coverage report.

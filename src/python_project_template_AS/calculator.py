@@ -33,21 +33,10 @@ class Calculator:
             self.registry = registry
 
     def register(self, op: Operation, *, replace: bool = False) -> None:
-        """Register an :class:`Operation` with the calculator's registry.
-
-        Args:
-            op: Operation to register.
-            replace: If True, replace an existing operation with the same name.
-        """
 
         self.registry.register(op, replace=replace)
 
     def apply(self, op_name: str, *args: Any) -> Any:
-        """Apply a named operation to the provided arguments.
-
-        Raises:
-            OperationError: wraps underlying errors from the operation call.
-        """
 
         op = self.registry.get(op_name)
         try:
@@ -60,12 +49,6 @@ class Calculator:
     def compose(
         self, ops: Iterable[str], *, left_to_right: bool = True
     ) -> Callable[[Any], Any]:
-        """Compose a sequence of unary operations into a callable.
-
-        Only supports unary operations (arity == 1). The returned function
-        accepts a single value and applies the operations in the requested
-        order.
-        """
 
         op_list: List[Operation] = [self.registry.get(name) for name in ops]
         for op in op_list:
@@ -91,12 +74,6 @@ class Calculator:
         return composed
 
     def chain(self, sequence: Iterable[Union[str, int]], initial: Any) -> Any:
-        """Apply a mixed sequence of operations to an initial value.
-
-        The sequence may contain operation names (str) and literal integer values.
-        Binary operations consume the current value and the next literal.
-        This helper is intentionally small and tailored for tests/examples.
-        """
 
         seq = list(sequence)
         cur = initial
