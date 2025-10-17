@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling >= 1.26"]
+build-backend = "hatchling.build"
 
 [project]
 name = "python-project-template"
@@ -20,6 +20,9 @@ classifiers = [
 ]
 
 
+[project.urls]
+Homepage = "https://github.com/andreascaglioni/python-project-template"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = ["-q","--strict-markers", "--disable-warnings", "--cov=src", "--cov-report=term-missing", "--cov-fail-under=85"]
@@ -28,8 +31,7 @@ markers = [
   "slow: marks slow tests",
 ]
 
-
-# --- Optional dependencies for development, docs, etc.
+# --- Optional dependencies for development. Run pip install -e ".[dev]"
 [project.optional-dependencies]
 dev = [
   "pytest",
@@ -40,7 +42,7 @@ dev = [
   "mypy",
 ]
 
-# list of pip-installable package names. Install running: pip install -e ".[docs]"
+# --- Optional dependencies for compiling the documentation. Run: pip install -e ".[docs]"
 docs = [
   "sphinx>=7.0",                 # provides sphinx.ext.* (autodoc, napoleon, autosummary, viewcode, ...)
   "pydata-sphinx-theme",         # theme used in docs/conf.py (pydata_sphinx_theme)
@@ -49,12 +51,3 @@ docs = [
   "sphinx-copybutton",           # provides extension `sphinx_copybutton`
   "sphinxcontrib-spelling",      # spell-checking documentation
 ]
-
-
-# --- SetUpTool options
-[tool.setuptools]
-package-dir = {"" = "src"}
-
-[tool.setuptools.packages.find]
-where = ["src"]
-include = ["python_project_template*"]
