@@ -1,8 +1,8 @@
 import pytest
 
-from python_project_template.registry import OperationRegistry
-from python_project_template.operations import Operation
-from python_project_template.exceptions import RegistryError
+from python_project_template_AS.registry import OperationRegistry
+from python_project_template_AS.operations import Operation
+from python_project_template_AS.exceptions import RegistryError
 
 
 def test_register_and_get():

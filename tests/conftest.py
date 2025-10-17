@@ -1,6 +1,6 @@
 import pytest
 
-from python_project_template import default_calculator
+from python_project_template_AS import default_calculator
 
 
 @pytest.fixture(scope="session")

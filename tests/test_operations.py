@@ -1,7 +1,7 @@
 import pytest
 
-from python_project_template.operations import ADD, SUB, MUL, DIV, NEG, SQR
-from python_project_template.exceptions import OperationError
+from python_project_template_AS.operations import ADD, SUB, MUL, DIV, NEG, SQR
+from python_project_template_AS.exceptions import OperationError
 
 
 def test_basic_binary_ops():

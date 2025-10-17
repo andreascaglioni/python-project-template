@@ -9,7 +9,7 @@ Keep the behaviour minimal: methods raise :class:`OperationError` for
 operation-related failures.
 """
 
-from typing import Callable, Iterable, List, Any, Optional
+from typing import Callable, Iterable, List, Any, Optional, Union
 
 from .registry import OperationRegistry
 from .operations import Operation
@@ -90,10 +90,10 @@ class Calculator:
 
         return composed
 
-    def chain(self, sequence: Iterable[str], initial: Any) -> Any:
+    def chain(self, sequence: Iterable[Union[str, int]], initial: Any) -> Any:
         """Apply a mixed sequence of operations to an initial value.
 
-        The sequence may contain operation names (str) and literal values.
+        The sequence may contain operation names (str) and literal integer values.
         Binary operations consume the current value and the next literal.
         This helper is intentionally small and tailored for tests/examples.
         """

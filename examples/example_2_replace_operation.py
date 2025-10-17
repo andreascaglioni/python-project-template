@@ -4,7 +4,7 @@ example_2_replace_operation.py
 Example on registering and replacing an operation with a new one (by the same name) in the Calculator class.
 """
 
-from python_project_template.calculator import Calculator, Operation
+from python_project_template_AS.calculator import Calculator, Operation
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@ requires = ["hatchling >= 1.26"]
 build-backend = "hatchling.build"
 
 [project]
-name = "python-project-template"
+name = "python-project-template-AS"
 description = "A minimal Python project demonstrating best practices for testing, documentation, and CI/CD. It implements a mini calculator as a minimal example."
 version = "0.1.0"
 readme = "README.md"
@@ -12,13 +12,11 @@ authors = [{ name = "Andrea Scaglioni", email = "andrea.c.scaglioni@gmail.com" }
 keywords = ["example", "template", "project-template", "pytest", "sphinx", "CI/CD"]
 license = { text = "MIT" }
 dependencies = []
-
 classifiers = [
   "Programming Language :: Python :: 3",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
 ]
-
 
 [project.urls]
 Homepage = "https://github.com/andreascaglioni/python-project-template"
