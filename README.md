@@ -8,58 +8,49 @@
 
 
 # python-project-template — showcasing good software practices
-The library provides a small dependence-free Calculator API (Operation, OperationRegistry, Calculator) that can register and compose simple mathematical operations.
-This simple code is used to showcase some good coding practices.
+
+`python-project-template` is a small python project to showcase good programming and software practices such as testing, documentation, CI/CD.
+
+This project implements a small dependence-free Calculator API (Operation, OperationRegistry, Calculator) that can register and compose simple mathematical operations.
 
 ## Table of contents
 - [Features](#features)
 - [Installation](#installation)
-- [Quick usage](#quick-usage)
+- [Usage and Testing](#Usage-and-Testing)
 - [Examples & experiments](#examples--experiments)
 - [Documentation](#documentation)
-- [Running tests](#running-tests)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Features
+## Features Highlights
 
-- **Argument validation** with type annotations and runtime checking using the ``typing`` module.
-- **Consistent error messages** for invalid operations and inputs via custom ``Exceptions``.
-- **Unit tests** with ``pytest``. Global testing variables set in `tests/convtest.py`.
-- **Example notebooks and scripts** for demonstration and exploration.
-- **Google-style documentation** generated with ``sphinx``.
-- **Pre-commit routine** configured in `.pre-commit-config.yaml`:
+- **Type-annotated API** with runtime argument validation.
+- **Custom exceptions** for clear error reporting.
+- **Comprehensive unit tests** using `pytest`.
+- **Google-style documentation** auto-generated with Sphinx.
+- **Pre-commit checks** and code formatting tools.
+- **CI/CD pipelines** for testing and docs via GitHub Actions.
 
-  - Code formatting with ``black``
-  - Linting with ``ruff-pre-commit``
-  - Type checking with ``mypy``
-  - Additional checks and fixes (trailing whitespace removal, enforcing empty line at EOF, YAML syntax checks, blocking large files) via ``pre-commit-hooks``
 
-- **Modern packaging** and easy installation using `pyproject.toml`.
-- **Automated test suite and coverage reporting** integrated with GitHub Actions; coverage reports can be published to GitHub Pages. Setup in `.github/workflows/tests.yml`.
-- **Automatic documentation build and deployment** to GitHub Pages with GitHub Actions. Setup in `.github/workflows/docs.yml`.
-- **Easy contribution workflow** for new features and improvements.
+See the [Documentation](#documentation) for a detailed list of features.
 
 ## Installation
 
 To install the latest release from TestPyPI, use:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install --upgrade pip
 pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple python-project-template-AS
 ```
 
-Alternatively, you can clone the repository, create a virtual environment (recommended), and install dependencies and an editable installation of `python-project-template`:
+Alternatively, you can clone the repository and install dependencies and an editable installation of `python-project-template-AS` with:
 
 ```bash
-git clone <https://github.com/andreascaglioni/python-project-template>
+git clone <https://github.com/andreascaglioni/python-project-template-AS>
 cd python-project-template
 pip install -e ".[dev]"
 ```
 
-## Quick usage
+## Usage and Testing
 
 The following is a quick example for the Calculator API.
 
@@ -74,7 +65,7 @@ print(calc.apply('add', 2, 3))  # -> 5
 
 # Compose unary operations into a Callable
 f = calc.compose(['neg', 'sqr'])
-print(f(3))  # -> 9
+print(f(-3))  # -> 9
 
 # Register a custom operation
 def inc(x):
@@ -84,28 +75,20 @@ calc.register(Operation('inc', inc, arity=1), replace=True)
 print(calc.apply('inc', 4))  # -> 5
 ```
 
-- `experiments/` — short runnable demos.
-- `notebooks/` — exploratory notebooks.
+Find more examples in `examples/`.
+
+To run the tests:
+
+```bash
+pytest tests/
+pytest -v tests/  # verbose output
+pytest --cov=python_project_template_AS tests/  # show test coverage
+```
 
 ## Documentation
 
 For detailed documentation, please visit our [GitHub Pages](https://andreascaglioni.github.io/your-repo-name/).
 
-To build the documentation locally:
-
-1. Ensure all dependencies for documentation (e.g., Sphinx) generation are installed, for example running ``pip install -e ".[docs]"``.
-2. Run the documentation build command (for example, ``make html``).
-3. Review the generated HTML in ``docs/_build/html``.
-
-## Running tests
-
-Run the full PyTest test suite with coverage:
-
-```bash
-pytest -q --cov=python_project_template_AS --cov-report=term --cov-report=html
-```
-
-Open `htmlcov/index.html` to view the coverage report.
 
 ## Contributing
 
@@ -121,7 +104,7 @@ git push --set-upstream origin feat/your-feature
 ```
 
 Run `pip install -e .[dev]` to get development tools (pre-commit, black, ruff, mypy, pytest, ...).
-The pre-commit routine is called with `pre-commit run --all-files` before committing.
+Run the pre-commit routine with `pre-commit run --all-files` before committing.
 
 ## License
 

@@ -20,6 +20,7 @@ from .operations import Operation, ADD, SUB, MUL, DIV, NEG, SQR
 from .registry import OperationRegistry
 from .calculator import Calculator
 from .utils import is_number
+from importlib.metadata import version
 
 __all__ = [
     "CalculatorError",
@@ -37,6 +38,7 @@ __all__ = [
     "is_number",
 ]
 
+__version__ = version("python-project-template-AS")
 
 # Default registry pre-populated with a few convenience operations.
 _default_registry = OperationRegistry()

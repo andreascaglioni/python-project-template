@@ -18,19 +18,7 @@ Repository setup (one-time)
 
 Local testing
 -------------
-To build the docs locally (recommended before pushing):
-
-.. code-block:: bash
-
-	# create and activate a venv
-	python -m venv .venv
-	source .venv/bin/activate
-	python -m pip install --upgrade pip
-	# install docs dependencies
-	pip install -e ".[docs]"
-	# build
-	cd docs
-	sphinx-build -b html -a -E -W -T . _build/html
+See the previous page :doc:`Local documentation <docs_local>` for additional local setup and testing instructions.
 
 Autosummary and generated files
 -------------------------------
@@ -42,4 +30,4 @@ Troubleshooting
 - If builds fail due to missing packages, ensure :file:`pyproject.toml` contains the correct ``docs`` extras and that ``pip install -e ".[docs]"`` succeeds.
 - If the site does not appear after the workflow succeeds, check Settings → Pages to ensure the site is not blocked by organization policy.
 
-That's it — the workflow will publish your Sphinx docs automatically when you push to ``main``.
+The workflow will attempt to publish your Sphinx docs automatically when you push to ``main``.

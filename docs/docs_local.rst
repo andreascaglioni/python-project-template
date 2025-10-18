@@ -5,6 +5,7 @@ Good documentation is essential for code sustainability. It ensures that others 
 
 To build the documentation for this project, follow these steps:
 
-1. Ensure all dependencies for documentation generation are installed, for example with ``pip install -e ".[docs]"``.
-2. Run the documentation build command (for example, ``make html``).
-3. Review the generated HTML in ``docs/_build/html``.
+1. Install documentation dependencies with ``pip install -e ".[docs]"``.
+2. Move to ``docs/`` (``cd docs``) and build the documentation ``make html``.
+
+The generated HTML is in ``docs/_build/html``.

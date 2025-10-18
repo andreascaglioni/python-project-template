@@ -16,9 +16,13 @@ if __name__ == "__main__":
     def add_v2(a, b):
         return (a + b) * 10
 
-    calc.register(Operation(name="add", func=add_v1))
-    assert calc.apply("add", 1, 2) == 3
+    op_v1 = Operation(name="add", func=add_v1, arity=2)
+    calc.register(op_v1)
+    sum_1 = calc.apply("add", 1, 2)
+    print("calc.apply('add', 1, 2) =", sum_1)
 
-    # replace existing operation
-    calc.register(Operation(name="add", func=add_v2), replace=True)
-    assert calc.apply("add", 1, 2) == 30
+    # Replace existing operation adn recompute the sum
+    op_v2 = Operation(name="add", func=add_v2, arity=2)
+    calc.register(op_v2, replace=True)
+    sum_2 = calc.apply("add", 1, 2)
+    print("calc.apply('add', 1, 2) = ", sum_2)
