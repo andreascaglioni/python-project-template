@@ -1,7 +1,7 @@
 [![CI](https://github.com/andreascaglioni/python-project-template/actions/workflows/tests.yml/badge.svg)](https://github.com/andreascaglioni/python-project-template/actions/workflows/tests.yml)
 [![Docs](https://github.com/andreascaglioni/python-project-template/actions/workflows/docs.yml/badge.svg)](https://github.com/andreascaglioni/python-project-template/actions/workflows/docs.yml)
 [![PyPI Version](https://img.shields.io/pypi/v/python-project-template.svg)](https://pypi.org/project/python-project-template-AS/)
-[![TestPyPI Version](https://img.shields.io/badge/TestPyPI-latest-informational.svg)](https://test.pypi.org/project/python-project-template-AS/)
+<!-- [![TestPyPI Version](https://img.shields.io/badge/TestPyPI-latest-informational.svg)](https://test.pypi.org/project/python-project-template-AS/) -->
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
@@ -36,10 +36,10 @@ See the [Documentation](#documentation) for a detailed list of features.
 
 ## Installation
 
-To install the latest release from TestPyPI, use:
+To install the latest release from PyPI, use:
 
 ```bash
-pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple python-project-template-AS
+pip install python-project-template-AS
 ```
 
 Alternatively, you can clone the repository and install dependencies and an editable installation of `python-project-template-AS` with:
