@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.1.2 - 2025-10-19
+- Clarified documentation
+- Add GH action for auto-release
+
 ## 0.1.1 - 2025-10-18
 - Minor improvements of examples, documentation, settings. First deployment to PyPi.
 
