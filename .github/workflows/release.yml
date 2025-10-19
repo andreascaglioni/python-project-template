@@ -68,15 +68,34 @@ jobs:
           password: ${{ secrets.PYPI_API_TOKEN }}
           verbose: true
 
-  github-release:
-    name: Create GitHub Release
-    # depend on both publish jobs so we can inspect their outcome
-    needs: [publish-testpypi, publish-pypi]
+  github-release-test:
+    name: Create GitHub Release (TestPyPI)
+    needs: [publish-testpypi]
     runs-on: ubuntu-latest
-    # only run when the relevant publish job succeeded for the tag type:
-    if: >-
-      (contains(github.ref_name, '-') && needs.publish-testpypi.result == 'success') ||
-      (!contains(github.ref_name, '-') && needs.publish-pypi.result == 'success')
+    if: contains(github.ref_name, '-') && needs.publish-testpypi.result == 'success'
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: ${{ github.ref_name }}
+          body: |
+            Automated prerelease for ${{ github.ref_name }}.
+          draft: false
+          prerelease: true
+          files: |
+            dist/*.whl
+            dist/*.tar.gz
+
+  github-release-pypi:
+    name: Create GitHub Release (PyPI)
+    needs: [publish-pypi]
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.ref_name, '-') }} && needs.publish-pypi.result == 'success'
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -90,7 +109,7 @@ jobs:
           body: |
             Automated release for ${{ github.ref_name }}.
           draft: false
-          prerelease: ${{ contains(github.ref_name, '-') }}
+          prerelease: false
           files: |
             dist/*.whl
             dist/*.tar.gz
