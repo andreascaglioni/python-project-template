@@ -86,7 +86,7 @@ pytest --cov=python_project_template_AS tests/  # show test coverage
 
 ## Documentation
 
-For detailed documentation, please visit our [GitHub Pages](https://andreascaglioni.github.io/your-repo-name/).
+For detailed documentation, please visit our [GitHub Pages](https://andreascaglioni.github.io/python-project-template/).
 
 
 ## Contributing
