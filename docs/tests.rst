@@ -1,14 +1,13 @@
 Tests
 =====
 
-It is a good idea to run the tests after installation to make sure the library works.
+It is a good idea to run the tests right after installation to make sure the library works (see “Running the tests manually” below).
 
-Testing during development is essential for identifying issues early and ensuring that new features do not break existing functionality.
+Running tests frequently during development catches issues early, provide fast feedback during development, and make refactoring safer. They also serve as executable documentation of expected behavior, reducing the risk of shipping bugs.
 
-Automated tests provide confidence in code changes and help maintain a stable and reliable code base as the project evolves. In the next section we'll see how to automatically run tests whenever the repository is pushed to the remote using GitHub-Actions.
+Test-driven development (TDD) means writing a failing test before implementing functionality. This practice clarifies requirements, encourages small, focused changes and modular design, and helps prevent regressions as the codebase evolves.
 
-Test-driven development is a software development approach where tests are written before the actual code. This process helps clarify requirements, ensures code correctness, and encourages modular design. By writing tests first, developers can catch bugs early and maintain a high level of code quality.
-
+For information on running tests automatically in CI, see the “GitHub Actions workflow for testing” section below for details on the included workflow that runs on pushes and pull requests.
 
 Running the tests manually
 --------------------------
@@ -20,3 +19,9 @@ Run the full PyTest test suite with coverage:
    pytest -q --cov=python_project_template_AS --cov-report=term --cov-report=html
 
 Open ``htmlcov/index.html`` to view the coverage report.
+
+
+GitHub Actions workflow for testing
+-----------------------------------
+
+This project includes a CI workflow at ``.github/workflows/tests.yml`` that runs on pushes and pull requests. The workflow sets up one or more Python versions, installs the package and test dependencies, runs exact configuration used in this project.
