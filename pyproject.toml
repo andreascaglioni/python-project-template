@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "python-project-template-AS"
 description = "A minimal Python project demonstrating best practices for testing, documentation, and CI/CD. It implements a mini calculator as a minimal example."
-version = "0.1.2"
+version = "0.1.3"
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [{ name = "Andrea Scaglioni", email = "andrea.c.scaglioni@gmail.com" }]
