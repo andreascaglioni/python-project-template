@@ -1,7 +1,6 @@
 [![CI](https://github.com/andreascaglioni/python-project-template-AS/actions/workflows/tests.yml/badge.svg)](https://github.com/andreascaglioni/python-project-template-AS/actions/workflows/tests.yml)
 [![Docs](https://github.com/andreascaglioni/python-project-template-AS/actions/workflows/docs.yml/badge.svg)](https://github.com/andreascaglioni/python-project-template-AS/actions/workflows/docs.yml)
 [![PyPI Version](https://img.shields.io/pypi/v/python-project-template-AS.svg)](https://pypi.org/project/python-project-template-AS/)
-<!-- [![TestPyPI Version](https://img.shields.io/badge/TestPyPI-latest-informational.svg)](https://test.pypi.org/project/python-project-template-AS/) -->
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
