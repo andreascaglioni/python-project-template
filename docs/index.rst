@@ -16,6 +16,7 @@ This code is used to showcase a number of good software practices. See the next 
    usage
    docs_local
    docs_github
+   release
    structure
    api
 

@@ -1,4 +1,4 @@
-name: Release (TestPyPI only)
+name: Release (PyPi or TestPyPI)
 
 on:
   push:
