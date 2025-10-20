@@ -1,5 +1,11 @@
 import os
 import sys
+from pathlib import Path
+
+try:
+    import tomllib  # Python 3.11+
+except ImportError:
+    import tomli as tomllib  # pip install tomli for older Pythons
 
 # -- Path setup --------------------------------------------------------------
 # Ensure the project package is importable for autodoc (assumes src layout)
@@ -8,8 +14,19 @@ sys.path.insert(0, os.path.abspath("../src"))
 # -- Project information -----------------------------------------------------
 project = "python-project-template-AS"
 author = "Andrea Scaglioni"
-# Keep in sync with pyproject.toml
-release = "0.1.0"
+
+# Read project version from pyproject.toml
+pyproject_path = Path(__file__).resolve().parents[1] / "pyproject.toml"
+release = "0.0.0"
+if pyproject_path.exists():
+    with pyproject_path.open("rb") as f:
+        data = tomllib.load(f)
+    # PEP 621
+    release = (
+        data.get("project", {}).get("version")
+        or data.get("tool", {}).get("poetry", {}).get("version")
+        or release
+    )
 
 # -- General configuration ---------------------------------------------------
 extensions = [
