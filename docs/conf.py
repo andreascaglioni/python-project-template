@@ -31,9 +31,9 @@ if pyproject_path.exists():
 # -- General configuration ---------------------------------------------------
 extensions = [
     "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
     "sphinx.ext.napoleon",
     "sphinx.ext.viewcode",
-    "sphinx.ext.autosummary",
     "sphinx_autodoc_typehints",
     "sphinx_mdinclude",
     "sphinx_copybutton",

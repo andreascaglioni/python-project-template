@@ -1,6 +1,12 @@
 # Changelog
 
 ## Unreleased
+- Improved documentation, README (added copy license; fixed badges)
+-
+
+## 0.1.3 - 2025-10-20
+- Updated changelog format
+- Bug fixes and improvements
 
 ## 0.1.2 - 2025-10-19
 - Clarified documentation
