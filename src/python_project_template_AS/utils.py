@@ -8,9 +8,5 @@ from typing import Any
 
 
 def is_number(x: Any) -> bool:
-    """Return True if ``x`` is an int or float.
-
-    Useful in examples and tests to guard numeric operations.
-    """
-
+    """Return True if x is int or float."""
     return isinstance(x, (int, float))

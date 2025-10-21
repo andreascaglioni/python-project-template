@@ -7,16 +7,12 @@ programmatic checks in tests or higher-level code.
 
 
 class CalculatorError(Exception):
-    """Base class for calculator-related errors.
-
-    Use this as the top-level exception when handling errors coming from the
-    package.
-    """
+    """Base exception for calculator errors."""
 
 
 class OperationError(CalculatorError):
-    """Raised when an operation fails (wrong arity, invalid input, etc.)."""
+    """Raised for operation failures (e.g., wrong arity, invalid input)."""
 
 
 class RegistryError(CalculatorError):
-    """Raised for registry problems (duplicate name, not found)."""
+    """Raised for registry errors (duplicate or missing name)."""

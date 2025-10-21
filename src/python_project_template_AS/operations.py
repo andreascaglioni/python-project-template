@@ -13,12 +13,12 @@ from .exceptions import OperationError
 
 @dataclass
 class Operation:
-    """Container for a named callable with an expected arity.
+    """Named callable with arity check.
 
     Attributes:
-        name: operation name used for registry lookups.
-        func: callable implementing the operation.
-        arity: number of positional arguments expected by the operation.
+        name (str): Operation name.
+        func (Callable): Operation function.
+        arity (int): Expected argument count.
     """
 
     name: str
@@ -26,6 +26,14 @@ class Operation:
     arity: int = 1
 
     def __call__(self, *args):
+        """Call operation, checking argument count.
+
+        Args:
+            *args: Arguments for the operation.
+
+        Raises:
+            OperationError: If argument count is wrong.
+        """
         if len(args) != self.arity:
             raise OperationError(
                 f"Operation '{self.name}' expects {self.arity} arguments, got {len(args)}"

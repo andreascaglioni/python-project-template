@@ -17,27 +17,21 @@ from .exceptions import OperationError
 
 
 class Calculator:
-    """Thin calculator wrapper around an OperationRegistry.
-
-    Methods:
-        register(op, replace=False): Register an Operation.
-        apply(op_name, *args): Apply a registered operation.
-        compose(ops, left_to_right=True): Compose unary operations.
-        chain(sequence, initial): Apply a mixed sequence DSL-style.
-    """
+    """Calculator using an OperationRegistry."""
 
     def __init__(self, registry: Optional[OperationRegistry] = None):
+        """Create a Calculator with an optional registry."""
         if registry is None:
             self.registry = OperationRegistry()
         else:
             self.registry = registry
 
     def register(self, op: Operation, *, replace: bool = False) -> None:
-
+        """Register an operation, optionally replacing existing."""
         self.registry.register(op, replace=replace)
 
     def apply(self, op_name: str, *args: Any) -> Any:
-
+        """Apply a named operation with arguments."""
         op = self.registry.get(op_name)
         try:
             return op(*args)
@@ -49,7 +43,7 @@ class Calculator:
     def compose(
         self, ops: Iterable[str], *, left_to_right: bool = True
     ) -> Callable[[Any], Any]:
-
+        """Compose unary operations into a single callable."""
         op_list: List[Operation] = [self.registry.get(name) for name in ops]
         for op in op_list:
             if op.arity != 1:
@@ -74,7 +68,7 @@ class Calculator:
         return composed
 
     def chain(self, sequence: Iterable[Union[str, int]], initial: Any) -> Any:
-
+        """Apply a sequence of operations and values starting from initial."""
         seq = list(sequence)
         cur = initial
         i = 0
